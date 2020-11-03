@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "patagonia-manager": {
+      "hosting": {
+        "patagonia-angular": [
+          "patagonia-manager"
+        ]
+      }
+    }
+  }
+}
