@@ -1,28 +1,120 @@
-<p>app-trabajador works!</p>
+<form [formGroup]="service.form" class="normal-form" autocomplete="off">
+   <mat-grid-list cols="2" rowHeight="500px">
+       <mat-grid-tile>
+            <div class="controles-container">
 
-<!-- <mat-card>
-    <div class="example-container">
-        <mat-form-field appearance="fill">
-            <mat-label>Nombres</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Nombres</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-        <mat-label>Select</mat-label>
-        <mat-select>
-            <mat-option value="option1">Option 1</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 3</mat-option>
-        </mat-select>
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-        <mat-label>Textarea</mat-label>
-        <textarea matInput></textarea>
-        </mat-form-field>
-    </div>
-</mat-card> -->
+                <input type="hidden" formControlName="$key">
+                
+                <mat-form-field>
+                    <input matInput formControlName="nombres" placeholder="Nombres*">
+                    <mat-error>El nombre es obligatorio</mat-error>
+                </mat-form-field>
+                
+                <mat-form-field>
+                    <input matInput formControlName="primer_apellido" placeholder="Primer apellido*">
+                    <mat-error>El primer apellido es obligatorio</mat-error>
+                </mat-form-field>
+                
+                <mat-form-field>
+                    <input matInput formControlName="segundo_apellido" placeholder="Segundo apellido">
+                </mat-form-field>
+                
+                <mat-form-field>
+                    <input matInput formControlName="rut" placeholder="RUT*">
+                    <mat-error>El rut es obligatorio</mat-error>
+                </mat-form-field >
+                                
+                <mat-form-field>
+                    <mat-select formControlName="nacionalidad" placeholder="Nacionalidad*">
+                        <ng-container *ngFor="let nacionalidad of nacionalidades">
+                            <mat-option value="{{nacionalidad.id}}">{{nacionalidad.value}}</mat-option>
+                        </ng-container>
+                    </mat-select>
+                    <mat-error>La nacionalidad es obligatoria</mat-error>
+                </mat-form-field>
+
+
+                
+                <mat-form-field>
+                    <mat-select formControlName="sistema_salud" placeholder="Sistema de salud*">
+                        <mat-option>SELECCIONAR</mat-option>
+                        <ng-container *ngFor="let salud of sistemasDeSalud">
+                            <mat-option value="{{salud.id}}">{{salud.value}}</mat-option>
+                        </ng-container>
+                    </mat-select>
+                </mat-form-field>
+                
+                <mat-form-field>
+                    <mat-select formControlName="prevision" placeholder="Previsión*">
+                        <mat-option>SELECCIONAR</mat-option>
+                        <ng-container *ngFor="let prevision of previsiones">
+                            <mat-option value="{{prevision.id}}">{{prevision.value}}</mat-option>
+                        </ng-container>
+                    </mat-select>
+                </mat-form-field>
+                
+                <label id="example-radio-group-label">Seleccionar estado civil:</label>
+                <div class="add-bottom-padding">
+                    <mat-radio-group formControlName="estado_civil">
+                        <mat-radio-button value="1">Soltero</mat-radio-button>
+                        <mat-radio-button value="2">Casado</mat-radio-button>
+                        <mat-radio-button value="3">Viudo</mat-radio-button>
+                        <mat-radio-button value="4">Divorciado</mat-radio-button>
+                        <!-- <mat-error>Es estado civil es obligatorio</mat-error> -->
+                    </mat-radio-group>
+                </div>
+                
+            </div>
+       </mat-grid-tile>
+       
+       
+       
+       <mat-grid-tile>
+        <div class="controles-container">
+                 
+            <mat-form-field>
+                <input matInput formControlName="fono_personal" placeholder="Fono personal*">
+                <!-- <mat-error>El nombre es obligatorio</mat-error> -->
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput formControlName="fono_casa" placeholder="Fono casa">
+                <!-- <mat-error>El nombre es obligatorio</mat-error> -->
+            </mat-form-field>
+
+
+            <mat-form-field>
+                <input matInput formControlName="fecha_nacimiento" [matDatepicker]="picker" placeholder="Fecha de nacimiento*">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error>La fecha de nacimiento es obligatoria</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput formControlName="direccion" placeholder="Dirección*">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select formControlName="ciudad" placeholder="Ciudad*">
+                    <mat-option>SELECCIONAR</mat-option>
+                    <ng-container *ngFor="let ciudad of ciudades">
+                        <mat-option value="{{ciudad.id}}">{{ciudad.value}}</mat-option>
+                    </ng-container>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select formControlName="comuna" placeholder="Comuna*">
+                    <mat-option>SELECCIONAR</mat-option>
+                    
+                </mat-select>
+            </mat-form-field>
+            <div class="button-row add-bottom-padding">
+                <button mat-raised-button color="primary" type="submit">Agsregar nuevo trabajador</button>
+                <button mat-raised-button color="warn">Limpiar datos</button>
+            </div>
+
+
+
+        </div>
+       </mat-grid-tile>
+   </mat-grid-list> 
+</form>
