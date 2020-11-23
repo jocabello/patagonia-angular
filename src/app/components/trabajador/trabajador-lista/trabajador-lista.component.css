@@ -1,0 +1,18 @@
+/* Structure */
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.filtro {
+  margin-left: 1rem;
+  width: 95%;
+}
+
+button {
+  margin: 16px 15px;
+}

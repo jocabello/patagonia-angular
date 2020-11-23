@@ -6,11 +6,7 @@ import { FormsModule, ReactiveFormsModule } from "@Angular/forms";
 
 // angular-material
 import { AngularMaterialModule } from './modules/angular-material/angular-material.module';
-
-
-// components
-import { TrabajadorComponent } from './components/trabajador/trabajador.component';
-import { TrabajadorListaComponent } from './components/trabajador/trabajador-lista/trabajador-lista.component';
+import { MatDialogRef } from '@angular/material/dialog';
 
 // firebase
 import { AngularFireModule } from '@angular/fire';
@@ -18,13 +14,20 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 
 // services
-import { TrabajadorService } from './services/trabajador.service'
+import { TrabajadorService } from './services/trabajador.service';
+
+
+// components
+import { TrabajadorComponent } from './components/trabajador/trabajador.component';
+import { TrabajadorListaComponent } from './components/trabajador/trabajador-lista/trabajador-lista.component';
+import { TrabajadorAgregarComponent } from './components/trabajador/trabajador-agregar/trabajador-agregar.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     TrabajadorComponent,
-    TrabajadorListaComponent
+    TrabajadorListaComponent,
+    TrabajadorAgregarComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { TrabajadorService } from './services/trabajador.service'
     AngularMaterialModule
   ],
   providers: [TrabajadorService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [TrabajadorComponent]
 })
 export class AppModule { }

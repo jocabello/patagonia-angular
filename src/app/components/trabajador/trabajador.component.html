@@ -1,4 +1,4 @@
-<form [formGroup]="service.form" class="normal-form" autocomplete="off">
+<form [formGroup]="service.form" class="normal-form" autocomplete="off" (submit)="onSubmit()">
    <mat-grid-list cols="2" rowHeight="500px">
        <mat-grid-tile>
             <div class="controles-container">
@@ -37,7 +37,6 @@
                 
                 <mat-form-field>
                     <mat-select formControlName="sistema_salud" placeholder="Sistema de salud*">
-                        <mat-option>SELECCIONAR</mat-option>
                         <ng-container *ngFor="let salud of sistemasDeSalud">
                             <mat-option value="{{salud.id}}">{{salud.value}}</mat-option>
                         </ng-container>
@@ -46,14 +45,13 @@
                 
                 <mat-form-field>
                     <mat-select formControlName="prevision" placeholder="Previsión*">
-                        <mat-option>SELECCIONAR</mat-option>
                         <ng-container *ngFor="let prevision of previsiones">
                             <mat-option value="{{prevision.id}}">{{prevision.value}}</mat-option>
                         </ng-container>
                     </mat-select>
                 </mat-form-field>
                 
-                <label id="example-radio-group-label">Seleccionar estado civil:</label>
+                <label id="example-radio-group-label">Seleccionar estado civil*</label>
                 <div class="add-bottom-padding">
                     <mat-radio-group formControlName="estado_civil">
                         <mat-radio-button value="1">Soltero</mat-radio-button>
@@ -93,25 +91,29 @@
             <mat-form-field>
                 <input matInput formControlName="direccion" placeholder="Dirección*">
             </mat-form-field>
+
             <mat-form-field>
                 <mat-select formControlName="ciudad" placeholder="Ciudad*">
-                    <mat-option>SELECCIONAR</mat-option>
                     <ng-container *ngFor="let ciudad of ciudades">
                         <mat-option value="{{ciudad.id}}">{{ciudad.value}}</mat-option>
                     </ng-container>
                 </mat-select>
             </mat-form-field>
+
+
             <mat-form-field>
                 <mat-select formControlName="comuna" placeholder="Comuna*">
-                    <mat-option>SELECCIONAR</mat-option>
-                    
+                    <ng-container *ngFor="let comuna of comunas">
+                        <mat-option value="{{comuna.id}}">{{comuna.value}}</mat-option>
+                    </ng-container>
                 </mat-select>
             </mat-form-field>
-            <div class="button-row add-bottom-padding">
-                <button mat-raised-button color="primary" type="submit">Agsregar nuevo trabajador</button>
-                <button mat-raised-button color="warn">Limpiar datos</button>
-            </div>
 
+            <div class="button-row add-bottom-padding">
+                <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Agsregar nuevo trabajador</button>
+                <button mat-raised-button color="warn" (click)="onClear()">Limpiar datos</button>
+            </div>
+            <label id="example-radio-group-label">(*) Campos obligatorios</label>
 
 
         </div>

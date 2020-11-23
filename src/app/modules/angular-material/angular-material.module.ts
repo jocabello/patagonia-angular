@@ -9,7 +9,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker'; 
 import {MatRadioModule} from '@angular/material/radio'; 
 import {MatSelectModule} from '@angular/material/select'; 
-import { MatNativeDateModule } from '@angular/material/core';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatTableModule} from '@angular/material/table'; 
+
+
+import {MatDialogModule} from '@angular/material/dialog'; 
 
 
 import {MatButtonModule} from '@angular/material/button'; 
@@ -27,7 +31,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatRadioModule,
     MatSelectModule,
     MatNativeDateModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    //MatDialogModule
   ],
   exports: [
     MatToolbarModule,
@@ -38,7 +44,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatRadioModule,
     MatSelectModule,
     MatNativeDateModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    //MatDialogModule
   ],
   providers: [],
 })

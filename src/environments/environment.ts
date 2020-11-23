@@ -12,6 +12,7 @@ export const environment = {
     storageBucket: "patagonia-manager.appspot.com",
     messagingSenderId: "203689173924",
     appId: "1:203689173924:web:4f58a69eeed893447d1731"
+
   }
 };
 
